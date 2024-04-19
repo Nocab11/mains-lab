@@ -5,10 +5,6 @@ import { Tabs, TabsProps } from "antd";
 import { PaymentSchedule } from "@entities/ContractDMS/PaymentSchedule/PaymentSchedule";
 
 const PaymentScheduleWidget = (): JSX.Element => {
-  const onChange = (key: string) => {
-    console.log(key);
-  };
-
   const items: TabsProps["items"] = [
     {
       key: "1",
@@ -29,7 +25,7 @@ const PaymentScheduleWidget = (): JSX.Element => {
 
   return (
     <div className={styles.tabs}>
-      <Tabs defaultActiveKey="2" items={items} onChange={onChange} />
+      <Tabs defaultActiveKey="2" items={items} />
     </div>
   );
 };
