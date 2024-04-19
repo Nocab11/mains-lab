@@ -1,0 +1,27 @@
+.wrapperBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.btn {
+  width: 100%;
+  color: #002C51;
+  border: 1px solid #002C51;
+  max-width: 200px;
+  border-radius: 30px;
+  background: transparent;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.text {
+  padding-right: 10px;
+}
+
+.increment {
+  position: relative;
+  top: 1px;
+  left: 10px;
+}

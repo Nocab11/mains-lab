@@ -1,0 +1,112 @@
+.card {
+  width: 100%;
+  max-width: 424px;
+  margin-top: 15px;
+  padding: 25px;
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  margin-right: 20px;
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.sum {
+  padding: 4px 15px;
+  display: inline-block;
+  width: fit-content;
+  border-radius: 12px;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+.icon {
+  width: 36px;
+}
+
+.info {
+  margin-top: 25px;
+}
+
+.data, .total {
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: bolder;
+  color: #FFFFFF
+}
+
+.wrapTotal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+}
+
+.balance {
+  padding-top: 5px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.balanceCount {
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+.balanceGreen {
+  color: #219D62;
+}
+
+.balanceRed {
+  color: #E9204F;
+}
+
+.status {
+  margin-top: 5px;
+  color: #FFFFFF;
+}
+
+.cardBgRed {
+  background: #E9204F;
+
+  .sum {
+    color: #002C51;
+    background: #FFFFFF;
+  }
+
+  .data, .total {
+    color: #FFFFFF;
+  }
+
+  .status {
+    color: #FFFFFF;
+  }
+
+}
+
+.cardBgWhite {
+  background: #FFFFFF;
+
+  .sum {
+    color: #002C51;
+    background: #E1E4E7;
+  }
+
+  .data, .total {
+    color: #002C51;
+  }
+
+  .status {
+    color: #002C51;
+  }
+
+}

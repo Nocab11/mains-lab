@@ -1,0 +1,21 @@
+.notification {
+  margin-left: 35px;
+  line-height: 0;
+  position: relative;
+}
+
+.notificationValue {
+  position: absolute;
+  width: 31px;
+  height: 20px;
+  color: #FFFFFF;
+  background: #FF4D4F;
+  top: -19px;
+  right: -27px;
+  font-size: 14px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20%;
+}

@@ -1,0 +1,36 @@
+.status {
+  padding-left: 15px;
+}
+.value {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    top: 7px;
+    left: -15px;
+  }
+}
+
+.paid {
+  &:after {
+    background: #219D62;
+  }
+}
+
+.notPaid {
+  &:after {
+    background: #E9204F;
+  }
+}
+
+.statusEnabled {
+  .value {
+    &:after {
+      background: #8094A8;
+    }
+  }
+}
