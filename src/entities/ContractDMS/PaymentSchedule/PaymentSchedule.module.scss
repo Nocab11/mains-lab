@@ -1,0 +1,15 @@
+.payment {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.arrows {
+  gap: 45px;
+  margin-right: 20px;
+}
+
+.disabled {
+  opacity: 0.5;
+}
