@@ -1,12 +1,12 @@
 import { JSX } from "react";
-import { Breadcrumb, Flex, Typography } from "antd";
+import { Breadcrumb, Card, Flex, Typography } from "antd";
 
 import styles from "./BreadcrumbWidget.module.scss";
 
 const BreadcrumbWidget = (): JSX.Element => {
   const { Text } = Typography;
   return (
-    <>
+    <Card className={styles.card}>
       <Breadcrumb className={styles.breadcrumb}>
         <Breadcrumb.Item>Главная</Breadcrumb.Item>
         <Breadcrumb.Item>Договоры ДМС</Breadcrumb.Item>
@@ -18,7 +18,7 @@ const BreadcrumbWidget = (): JSX.Element => {
         </Text>
         <Text className={styles.status}>Действующий</Text>
       </Flex>
-    </>
+    </Card>
   );
 };
 

@@ -2,13 +2,13 @@
   width: 100%;
   max-width: 424px;
   margin-top: 15px;
-  padding: 25px;
   border-radius: 16px;
   position: relative;
   display: flex;
   flex-direction: column;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   margin-right: 20px;
+  border: none;
 }
 
 .head {
@@ -39,10 +39,10 @@
   font-size: 36px;
   line-height: 36px;
   font-weight: bolder;
-  color: #FFFFFF
+  //color: #FFFFFF
 }
 
-.wrapTotal {
+.infoContent {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -72,7 +72,7 @@
 
 .status {
   margin-top: 5px;
-  color: #FFFFFF;
+  //color: #FFFFFF;
 }
 
 .cardBgRed {
@@ -94,19 +94,26 @@
 }
 
 .cardBgWhite {
-  background: #FFFFFF;
+
 
   .sum {
     color: #002C51;
     background: #E1E4E7;
   }
+  //
+  //.data, .total {
+  //  color: #002C51;
+  //}
+  //
+  //.status {
+  //  color: #002C51;
+  //}
 
-  .data, .total {
+}
+
+.cardBgWhite.secondTheme {
+  .sum {
     color: #002C51;
+    background: yellow;
   }
-
-  .status {
-    color: #002C51;
-  }
-
 }

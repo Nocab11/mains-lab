@@ -1,4 +1,4 @@
-import { JSX } from "react";
+import { JSX, useMemo } from "react";
 
 import AttentionIcon from "@shared/assets/attention.svg";
 import MoneyIcon from "@shared/assets/money.svg";
@@ -13,20 +13,33 @@ import {
 } from "@entities/ContractDMS/PaymentSchedule/types";
 import classNames from "classnames";
 import { formattedNumber } from "@shared/utils/formattedNumber";
+import { Card, Flex, theme, Typography } from "antd";
+import { EActionsBg } from "@shared/themes/types";
 
 const PaymentScheduleCard = (props: IPaymentSchedule): JSX.Element => {
   const { sum, info, text, status } = props;
 
+  const { Text } = Typography;
+
+  const { token } = theme.useToken();
+
+  const getCurrentTheme = useMemo(() => {
+    if (token.Card?.actionsBg === EActionsBg.WHITE) {
+      return "defaultTheme";
+    }
+    return "secondTheme";
+  }, [token.Card]);
+
   return (
-    <div
+    <Card
       className={
         status === IPaymentScheduleStatus.OVERDUE_PAYMENT_DETAILS
-          ? classNames(styles.card, styles.cardBgRed)
-          : classNames(styles.card, styles.cardBgWhite)
+          ? classNames(styles.card, styles.cardBgRed, styles[getCurrentTheme])
+          : classNames(styles.card, styles.cardBgWhite, styles[getCurrentTheme])
       }
     >
-      <div className={styles.head}>
-        {sum && <span className={styles.sum}>{formattedNumber(sum)} ₽</span>}
+      <Flex className={styles.head}>
+        {sum && <Text className={styles.sum}>{formattedNumber(sum)} ₽</Text>}
         {status === IPaymentScheduleStatus.OVERDUE_PAYMENT_DETAILS && (
           <img className={styles.icon} src={AttentionIcon} alt="attention" />
         )}
@@ -36,44 +49,48 @@ const PaymentScheduleCard = (props: IPaymentSchedule): JSX.Element => {
         {status === IPaymentScheduleStatus.UPDATED_TOTAL_AMOUNT && (
           <img className={styles.icon} src={DocsIcon} alt="docs" />
         )}
-      </div>
+      </Flex>
 
       <div className={styles.info}>
-        {info.date && <span className={styles.data}>{info.date}</span>}
+        {info.date && (
+          <div className={styles.infoContent}>
+            <Text className={styles.data}>{info.date}</Text>
+          </div>
+        )}
         {info.total && (
-          <div className={styles.wrapTotal}>
-            <span className={styles.total}>{formattedNumber(info.total)}</span>
+          <div className={styles.infoContent}>
+            <Text className={styles.total}>{formattedNumber(info.total)}</Text>
             {info.balance?.flag ? (
-              <div className={classNames(styles.balance, styles.balanceGreen)}>
+              <Flex className={classNames(styles.balance, styles.balanceGreen)}>
                 <img src={TriangleGreenIcon} alt="" />
-                <span
+                <Text
                   className={classNames(
                     styles.balanceCount,
                     styles.balanceCountGreen,
                   )}
                 >
                   - {formattedNumber(info.balance?.count ?? 0)} ₽
-                </span>
-              </div>
+                </Text>
+              </Flex>
             ) : (
-              <div className={classNames(styles.balance, styles.balanceRed)}>
+              <Flex className={classNames(styles.balance, styles.balanceRed)}>
                 <img src={TriangleRedIcon} alt="" />
-                <span
+                <Text
                   className={classNames(
                     styles.balanceCount,
                     styles.balanceCountRed,
                   )}
                 >
                   + {formattedNumber(info.balance?.count ?? 0)} ₽
-                </span>
-              </div>
+                </Text>
+              </Flex>
             )}
           </div>
         )}
       </div>
 
-      <span className={styles.status}>{text}</span>
-    </div>
+      <Text className={styles.status}>{text}</Text>
+    </Card>
   );
 };
 
